@@ -3,180 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>墨苍离 · 思想体系</title>
+<title>墨苍离思想体系</title>
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--text:#17191c;--muted:#70757d;--line:#e5e7eb;--soft:#f1f3f5;--accent:#111827;--late:#eef4ff;--early:#f7f2ea}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.72}a{color:inherit;text-decoration:none}button,input{font:inherit}.wrap{max-width:1080px;margin:auto;padding:26px 22px 80px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.back{font-size:14px;color:var(--muted)}.version{font-size:12px;color:var(--muted)}.hero{padding:22px 0 8px}.hero h1{font-size:48px;line-height:1.08;letter-spacing:-.045em;margin:0 0 10px}.hero p{color:var(--muted);font-size:16px;max-width:760px;margin:0}.askbar{margin-top:24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}.askbar input{width:100%;border:1px solid var(--line);background:var(--card);border-radius:14px;padding:14px 16px;outline:none}.askbar button{border:0;background:var(--accent);color:#fff;border-radius:14px;padding:0 18px;cursor:pointer}.hint{font-size:12px;color:var(--muted);margin-top:7px}.section{margin-top:34px}.section-title{display:flex;justify-content:space-between;gap:15px;align-items:end;margin-bottom:12px}.section-title h2{font-size:25px;margin:0}.section-title span{font-size:12px;color:var(--muted)}.overview{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}.path{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:center}.step{background:var(--soft);border-radius:13px;padding:15px;text-align:center}.step b{display:block}.step small{color:var(--muted)}.arrow{color:var(--muted);font-weight:800}.themes{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.theme{display:block;background:var(--card);border:1px solid var(--line);border-radius:17px;padding:19px;transition:.15s}.theme:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.045)}.num{font-size:11px;color:var(--muted);font-weight:850;letter-spacing:.08em}.theme h3{font-size:20px;margin:4px 0 5px}.theme p{margin:0;color:var(--muted);font-size:14px}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.chips span{background:var(--soft);padding:4px 8px;border-radius:999px;font-size:11px}.questions{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.question{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;cursor:pointer}.question:hover{background:#fbfbfc}.question b{display:block}.question small{color:var(--muted)}.filterbar{display:flex;gap:7px;flex-wrap:wrap}.filterbar button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 13px;color:var(--muted);cursor:pointer}.filterbar button.active{background:var(--accent);color:#fff;border-color:var(--accent)}.manual{display:grid;gap:12px}.chapter{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}.chapter summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center}.chapter summary::-webkit-details-marker{display:none}.chapter summary h3{margin:0;font-size:20px}.chapter summary p{margin:4px 0 0;color:var(--muted);font-size:13px}.badge{font-size:11px;padding:5px 8px;border-radius:999px;white-space:nowrap}.badge.early{background:var(--early)}.badge.late{background:var(--late)}.badge.all{background:var(--soft)}.body{border-top:1px solid var(--line);padding:20px 22px 23px}.body h4{font-size:13px;margin:17px 0 5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.body p{margin:5px 0}.remember{margin:13px 0;background:var(--soft);border-radius:12px;padding:13px 15px}.remember b{display:block;margin-bottom:5px}.compare{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.box{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fafafa}.box b{font-size:13px}.box p{font-size:13px;color:var(--muted);margin:4px 0}.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}.meta-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}.meta-card h3{margin:0 0 6px;font-size:17px}.meta-card p{margin:0;color:var(--muted);font-size:13px}.hidden{display:none!important}.footer{margin-top:36px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px}@media(max-width:760px){.wrap{padding:18px 14px 55px}.hero h1{font-size:36px}.askbar{grid-template-columns:1fr}.askbar button{padding:12px}.path{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}.themes,.questions,.meta,.compare{grid-template-columns:1fr}.section-title{align-items:start}.chapter summary{padding:17px}.body{padding:17px}}
+:root{--bg:#f5f6f8;--card:#fff;--text:#17191c;--muted:#6c727b;--line:#e4e7eb;--soft:#f1f2f4;--accent:#111827;--accent2:#eef2ff;--good:#eef6f1;--warn:#fff7ed}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}a{color:inherit;text-decoration:none}button,input{font:inherit}.app{display:grid;grid-template-columns:286px minmax(0,1fr);min-height:100vh}.side{height:100vh;position:sticky;top:0;background:var(--card);border-right:1px solid var(--line);padding:22px 16px;overflow:auto}.brand{font-size:21px;font-weight:850;padding:0 8px 4px}.sub{font-size:12px;color:var(--muted);padding:0 8px 16px}.back{display:block;color:var(--muted);font-size:13px;padding:7px 8px;margin-bottom:10px}.search{width:100%;border:1px solid var(--line);background:#fafafa;border-radius:11px;padding:10px 12px;margin-bottom:12px}.filters{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:var(--soft);padding:4px;border-radius:11px;margin-bottom:14px}.filters button{border:0;background:transparent;border-radius:8px;padding:7px 4px;font-size:12px;color:var(--muted);cursor:pointer}.filters button.active{background:#fff;color:var(--text);font-weight:800;box-shadow:0 1px 3px rgba(0,0,0,.06)}.navtitle{font-size:11px;color:var(--muted);font-weight:800;letter-spacing:.08em;padding:12px 8px 5px}.nav a{display:block;padding:8px 9px;border-radius:9px;font-size:13px}.nav a:hover{background:var(--soft)}.main{max-width:1080px;width:100%;padding:38px 5vw 90px}.hero,.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 32px rgba(0,0,0,.04)}.hero{padding:36px 38px}.eyebrow{font-size:12px;color:var(--muted);font-weight:800;letter-spacing:.12em}.hero h1{font-size:45px;letter-spacing:-.04em;line-height:1.12;margin:8px 0 10px}.lead{font-size:17px;color:var(--muted);max-width:820px}.thesis{margin-top:22px;padding:18px 20px;border-radius:14px;background:var(--soft);font-size:20px;font-weight:800}.map{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin-top:22px}.map .m{background:#fafafa;border:1px solid var(--line);padding:14px;border-radius:12px;text-align:center}.map b{display:block}.map span{display:block;font-size:12px;color:var(--muted);margin-top:3px}.arrow{color:var(--muted);font-weight:900}.block{margin-top:24px}.section-head{display:flex;justify-content:space-between;align-items:end;margin:32px 0 12px}.section-head h2{font-size:28px;margin:0}.section-head p{margin:0;color:var(--muted);font-size:13px}.theme-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.theme{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}.num{font-size:11px;font-weight:850;color:var(--muted);letter-spacing:.08em}.theme h3{font-size:22px;margin:5px 0 5px}.one{font-weight:800;margin:0 0 10px}.muted{color:var(--muted)}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.chips span{font-size:12px;background:var(--soft);padding:4px 8px;border-radius:999px}.theme details{margin-top:15px;border-top:1px solid var(--line);padding-top:10px}.theme summary{cursor:pointer;font-size:13px;font-weight:800}.theme ul{padding-left:20px;margin:9px 0 0}.theme li{margin:4px 0;font-size:14px}.chapter{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-top:12px}.chapter h3{font-size:23px;margin:0 0 4px}.chapter .summary{font-size:17px;font-weight:800;margin:8px 0 14px}.chapter h4{font-size:14px;margin:19px 0 6px}.chapter p{margin:6px 0}.remember{background:var(--good);border-radius:12px;padding:14px 16px;margin:14px 0}.remember b{display:block;margin-bottom:5px}.logic{background:var(--accent2);border-radius:12px;padding:14px 16px;margin:14px 0;font-weight:700}.warn{background:var(--warn);border-radius:12px;padding:14px 16px;margin:14px 0}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.box{background:#fafafa;border:1px solid var(--line);border-radius:12px;padding:14px}.box b{display:block;margin-bottom:4px}.box p,.box li{font-size:14px}.box ul{padding-left:18px;margin:5px 0}.questions{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;cursor:pointer}.q:hover{border-color:#c8ccd2}.q b{display:block}.q span{font-size:13px;color:var(--muted)}.timeline{display:grid;grid-template-columns:1fr 1fr;gap:12px}.era{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}.era h3{margin:0 0 7px}.era .big{font-size:20px;font-weight:850}.evidence{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.tagbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}.tagbox b{display:block}.tagbox span{font-size:13px;color:var(--muted)}.note{font-size:13px;color:var(--muted);margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}.mobile{display:none}.hidden{display:none!important}@media(max-width:860px){.app{grid-template-columns:1fr}.side{position:fixed;left:0;top:0;z-index:20;width:82vw;max-width:320px;transform:translateX(-105%);transition:.2s;box-shadow:0 0 40px rgba(0,0,0,.18)}.side.open{transform:none}.mobile{display:flex;position:sticky;top:0;z-index:10;background:rgba(245,246,248,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:10px 14px;justify-content:space-between;align-items:center}.mobile button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 10px}.main{padding:18px 14px 60px}.hero{padding:25px 22px}.hero h1{font-size:34px}.map{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}.theme-grid,.two,.questions,.timeline,.evidence{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="top"><a class="back" href="../index.html">← 首页</a><span class="version">墨苍离思想库</span></div>
-
-  <header class="hero">
-    <h1>墨苍离</h1>
-    <p>把数千条知乎回答与文章整理成一套可阅读、可检索、可按时间筛选的思想体系。</p>
-    <div class="askbar"><input id="search" placeholder="搜索思想，或输入一个问题：比如“我要不要辞职？”"><button id="askBtn">搜索 / 问墨苍离</button></div>
-    <div class="hint">当前网页先做本地思想检索；“问墨苍离”智能调用后续接入。下面可按全部、2024以前、2024以后筛选。</div>
-  </header>
-
-  <section class="section" id="overview">
-    <div class="section-title"><h2>思想总览</h2><span>先用30秒看懂主线</span></div>
-    <div class="overview">
-      <div class="path">
-        <div class="step"><b>看清现实</b><small>祛魅 · 事实 · 结构</small></div><div class="arrow">→</div>
-        <div class="step"><b>保护筹码</b><small>风险 · 资源 · 边界</small></div><div class="arrow">→</div>
-        <div class="step"><b>行动反馈</b><small>试错 · 修正 · 环境</small></div><div class="arrow">→</div>
-        <div class="step"><b>扩大选择权</b><small>退出权 · 自主性</small></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="themes">
-    <div class="section-title"><h2>7大主题</h2><span>点击跳到对应系统阅读</span></div>
-    <div class="themes">
-      <a class="theme" href="#world"><div class="num">01</div><h3>认识世界</h3><p>祛魅、事实与解释、应然与实然、独立判断。</p><div class="chips"><span>祛魅</span><span>叙事</span><span>独立判断</span></div></a>
-      <a class="theme" href="#risk"><div class="num">02</div><h3>风险与决策</h3><p>先不输、筹码、止损、退出、小成本试错。</p><div class="chips"><span>先不输</span><span>梭哈</span><span>反馈</span></div></a>
-      <a class="theme" href="#wealth"><div class="num">03</div><h3>财富与阶层</h3><p>资源、心理带宽、阶层概率、成功祛魅、选择权。</p><div class="chips"><span>财富</span><span>阶层</span><span>概率</span></div></a>
-      <a class="theme" href="#relation"><div class="num">04</div><h3>人性与关系</h3><p>识人、信任分层、边界、依赖、权力与信息。</p><div class="chips"><span>识人</span><span>信任</span><span>边界</span></div></a>
-      <a class="theme" href="#love"><div class="num">05</div><h3>婚恋</h3><p>爱情祛魅、长期适配、情绪价值与现实条件。</p><div class="chips"><span>爱情</span><span>长期关系</span><span>伴侣</span></div></a>
-      <a class="theme" href="#self"><div class="num">06</div><h3>自我与情绪</h3><p>焦虑、自尊、身份、心理资源、撤退与环境。</p><div class="chips"><span>情绪</span><span>焦虑</span><span>身份</span></div></a>
-      <a class="theme" href="#evolution"><div class="num">07</div><h3>思想演化</h3><p>2024以前的现实生存期，与2024以后的认知成熟期。</p><div class="chips"><span>2024以前</span><span>2024以后</span></div></a>
-    </div>
-  </section>
-
-  <section class="section" id="questions">
-    <div class="section-title"><h2>常见问题</h2><span>从问题进入思想</span></div>
-    <div class="questions">
-      <div class="question" data-q="辞职 工作 风险 退出权"><b>我要不要辞职？</b><small>风险、可逆性、缓冲、选择权</small></div>
-      <div class="question" data-q="信任 识人 关系 人际"><b>这个人值得信任吗？</b><small>长期行为、成本、利益冲突、修复</small></div>
-      <div class="question" data-q="婚恋 结婚 爱情 长期关系"><b>我该不该结婚？</b><small>感情、责任、长期适配、退出成本</small></div>
-      <div class="question" data-q="风险 机会 梭哈 决策"><b>这个机会值得赌吗？</b><small>下行风险、上行空间、可逆性</small></div>
-      <div class="question" data-q="阶层 财富 选择权 普通人"><b>普通人怎么提高选择权？</b><small>资源、技能、缓冲、概率</small></div>
-    </div>
-  </section>
-
-  <section class="section" id="filter">
-    <div class="section-title"><h2>筛选</h2><span>时间是第二维度，不是唯一分类</span></div>
-    <div class="filterbar">
-      <button class="active" data-era="all">全部思想</button>
-      <button data-era="early">2024以前</button>
-      <button data-era="late">2024以后</button>
-    </div>
-  </section>
-
-  <section class="section" id="manual">
-    <div class="section-title"><h2>系统阅读</h2><span>每章：一句话 → 解释 → 误区 → 怎么用</span></div>
-    <div class="manual">
-
-      <details class="chapter" id="world" data-era="early all" open>
-        <summary><div><h3>01 · 认识世界：祛魅与独立判断</h3><p>先把人、权威、成功、爱情和自己的想象放回现实。</p></div><span class="badge early">早期形成 · 后期延伸</span></summary>
-        <div class="body">
-          <div class="remember"><b>一句话</b>祛魅不是否定，而是取消“神化”，把判断权拿回来。</div>
-          <h4>详细解释</h4><p>人容易把成功人士、有钱人、名校、专家、爱情、理想生活放到神坛上，再把自己的希望、价值感和判断外包给它们。一旦现实不符合想象，就会从“对方没有那么完美”滑向“我的人生失败了”。墨苍离早期反复强调降低不必要期待、保持独立判断。</p>
-          <h4>2024以后怎么发展</h4><p>后期的祛魅进一步从“对外”转向“对内”：不仅要怀疑别人给你的叙事，也要怀疑自己脑中的解释、身份和故事。事实、解释、叙事需要拆开。</p>
-          <h4>常见误区</h4><p>祛魅不等于“谁都不信”；独立判断也不等于“多数人说什么我就反着来”。真正独立的是看证据、激励、反例和现实反馈。</p>
-          <div class="compare"><div class="box"><b>不是独立判断</b><p>专家都这么说，所以一定对。</p></div><div class="box"><b>也不是独立判断</b><p>专家都这么说，所以一定错。</p></div></div>
-          <h4>怎么用</h4><p>问自己：我看到的是事实，还是解释？我是不是把某个人或某种生活当成唯一答案？如果没有这个对象，我还有哪些替代选择？</p>
-        </div>
-      </details>
-
-      <details class="chapter" id="risk" data-era="early all">
-        <summary><div><h3>02 · 风险与决策：先不输，再求赢</h3><p>普通人最重要的能力之一，是避免一次错误把自己清零。</p></div><span class="badge early">2024以前核心</span></summary>
-        <div class="body">
-          <div class="remember"><b>一句话</b>不要先问“能赚多少”，先问“输了以后我还在不在牌桌上”。</div>
-          <h4>详细解释</h4><p>机会并不一定稀缺，真正稀缺的是在下一次机会出现时你还有现金、健康、信用、技能、时间和心理资源。普通人可承受的失败次数更少，因此下行风险比单次收益更重要。</p>
-          <h4>核心原则</h4><p>不轻易梭哈；给重大选择留安全垫；进入之前想清止损条件；不要把“坚持”本身当成美德；必要时允许撤退和休整。</p>
-          <h4>怎么用</h4><p>重大决策六问：最坏会怎样？我承担得起吗？错了能回来吗？上行空间多大？做了能得到什么新信息？这个选择会增加还是减少未来选择权？</p>
-        </div>
-      </details>
-
-      <details class="chapter" data-era="late all">
-        <summary><div><h3>行动与反馈：不要让思考替代现实</h3><p>能产生新信息的小实验，通常比继续脑内推演更有价值。</p></div><span class="badge late">2024以后强化</span></summary>
-        <div class="body">
-          <div class="remember"><b>一句话</b>假设 → 最小行动 → 现实反馈 → 修正模型。</div>
-          <h4>详细解释</h4><p>成熟期更强调，认知如果不改变预测、选择和行为，就很容易成为精神消费。人会因为“我正在研究、规划、思考”产生解决问题的错觉，但现实并没有新增信息。</p>
-          <h4>怎么用</h4><p>把“我要不要辞职”改成“先投20份更匹配的岗位，看市场真实反馈”；把“我适不适合创业”改成“小规模验证是否真的有人愿意付钱”。优先低成本、可逆、能带回新信息的行动。</p>
-        </div>
-      </details>
-
-      <details class="chapter" id="wealth" data-era="all early late">
-        <summary><div><h3>03 · 财富与阶层：资源的价值是购买选择权</h3><p>钱、时间、注意力、技能、关系和心理稳定都属于资源。</p></div><span class="badge all">贯穿前后</span></summary>
-        <div class="body">
-          <div class="remember"><b>一句话</b>财富最重要的价值之一，是让你在关键时刻拥有“不必这样做”的能力。</div>
-          <h4>详细解释</h4><p>钱不仅可以买消费，也可以买缓冲；缓冲带来退出权，退出权带来选择权。普通人的困境也不能只解释成“认知低”，因为稀缺本身会占用认知带宽、缩短时间尺度、降低试错能力。</p>
-          <h4>阶层怎么看</h4><p>阶层更像一个多变量概率系统：资源、环境、技能、关系、现金缓冲、时间与运气共同作用。与其追求一次翻盘，不如持续提高好结果的长期概率，并减少毁灭性下行。</p>
-          <h4>成功祛魅</h4><p>不要从一个人的成功结果倒推出他所有判断都正确。成功样本包含时代、行业、家庭、运气、资源与路径依赖，也存在明显的幸存者偏差。</p>
-        </div>
-      </details>
-
-      <details class="chapter" id="relation" data-era="all early late">
-        <summary><div><h3>04 · 人性与关系：看行为、成本和结构</h3><p>别急着问“他是不是好人”，先看他在有成本时怎么选择。</p></div><span class="badge all">贯穿前后</span></summary>
-        <div class="body">
-          <div class="remember"><b>一句话</b>判断一个人，长期行为比漂亮语言更可靠。</div>
-          <h4>中性人假设</h4><p>多数人并不是稳定的“好人/坏人”。同一个人在不同利益、压力和权力环境下可以表现完全不同，因此标签的信息量远低于具体行为。</p>
-          <h4>识人六看</h4><p>长期行为、承担成本、一致性、对弱者态度、利益冲突时的选择、犯错后的修复能力。</p>
-          <h4>关系结构</h4><p>需求 → 资源 → 依赖 → 权力 → 信任 → 边界 → 违约成本 → 退出权。很多看起来是“感情问题”的冲突，本质上也包含结构变量。</p>
-          <h4>边界与信息</h4><p>没有后果的边界往往只是请求。真诚也不等于无边界暴露：秘密、信息差、表达节制本身具有资源价值。</p>
-        </div>
-      </details>
-
-      <details class="chapter" id="love" data-era="all early late">
-        <summary><div><h3>05 · 婚恋：短期浓烈不等于长期稳定</h3><p>爱情可以开始一段关系，但不能独自维持长期合作。</p></div><span class="badge all">贯穿前后</span></summary>
-        <div class="body">
-          <div class="remember"><b>一句话</b>不要用追求强度、浪漫和承诺替代对长期行为的判断。</div>
-          <h4>爱情祛魅</h4><p>吸引、激情、追求、承诺都是真实体验，但它们不自动证明长期责任、冲突处理能力、财务习惯、边界感和压力下的可靠性。</p>
-          <h4>爱情不等式</h4><p>事业成功 ≠ 好伴侣；疯狂追求 ≠ 真心爱；欣赏一个人 ≠ 无限信任；短期浓烈 ≠ 长期稳定。</p>
-          <h4>长期关系看什么</h4><p>感情 + 信任 + 责任 + 共同利益 + 规则 + 修复机制。判断适不适合结婚，要看情绪稳定、冲突处理、财务习惯、家庭边界、长期目标以及极端压力下的行为。</p>
-        </div>
-      </details>
-
-      <details class="chapter" id="self" data-era="all early late">
-        <summary><div><h3>06 · 自我与情绪：情绪是信号，不是事实判决</h3><p>理解自己，不是给情绪找理由，而是把它转成可行动的信息。</p></div><span class="badge all">早期资源观 · 后期认知化</span></summary>
-        <div class="body">
-          <div class="remember"><b>一句话</b>先问“情绪在报告什么”，再问“这个报告准确吗，我能做什么”。</div>
-          <h4>心理资源</h4><p>时间、注意力、情绪容量、决策能力和心理韧性都会被持续消耗。资源透支时，人更容易依赖廉价共鸣、受害叙事和即时情绪补偿。</p>
-          <h4>焦虑</h4><p>焦虑常常与不确定、控制感不足、资源不足和过度预测未来有关。处理的第一步是区分可控与不可控，再设计能产生新反馈的行动。</p>
-          <h4>身份</h4><p>“我失败过”不等于“我是失败者”。成熟期更强调身份是一个可更新模型，新的行动和反馈可以改变模型。</p>
-          <h4>环境</h4><p>不要迷信纯意志力。环境会塑造默认行为、信息来源和直觉；周期性接触新环境、新人群、新技能，有助于打破固化模型。</p>
-        </div>
-      </details>
-
-      <details class="chapter" id="evolution" data-era="all">
-        <summary><div><h3>07 · 思想演化：2024是系统化分界，不是思想断裂</h3><p>早期更像“怎样不被现实吃掉”，后期更像“怎样不被自己的模型骗掉”。</p></div><span class="badge all">时间轴</span></summary>
-        <div class="body">
-          <div class="compare">
-            <div class="box"><b>2024以前 · 现实生存期</b><p>祛魅、先不输、心理资源、责任边界、信息优势、止损、撤退、社会博弈。</p></div>
-            <div class="box"><b>2024以后 · 认知成熟期</b><p>事实与解释、认知偏差、叙事与自我、行动实验、反馈、概率主义、选择权。</p></div>
-          </div>
-          <h4>真正的演化</h4><p>早期是“对外祛魅”：不要神化人、权威、阶层、爱情和成功。后期进一步成为“对内祛魅”：不要神化自己的判断、身份、故事和理论。</p>
-          <p>早期强调“保筹码、不出局”；后期把这一目标进一步抽象为“扩大选择权、减少被迫”。所以更准确的理解不是前后思想相反，而是早期生存与博弈观点被纳入更大的认知—行动—自主性系统。</p>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <section class="section" id="source">
-    <div class="section-title"><h2>原始出处</h2><span>后续逐条补齐证据链</span></div>
-    <div class="meta"><div class="meta-card"><h3>原回答证据</h3><p>计划按“知乎回答编号 / 日期 / 原问题 / 原文摘要 / 对应思想”建立可展开证据卡。当前思想框架来自已整理的数千条回答与文章。</p></div><div class="meta-card"><h3>证据等级</h3><p>【明确观点】作者有直接对应表达；【框架推演】依据稳定思想推导；【分析补充】对框架的解释、批判或延伸。</p></div></div>
-  </section>
-
-  <section class="section" id="versions">
-    <div class="section-title"><h2>版本记录</h2><span>框架会随新增语料校正</span></div>
-    <div class="meta"><div class="meta-card"><h3>V1.0 → V1.1</h3><p>从前4000条建立主体结构；加入4001—5000后，强化祛魅、先不输、心理资源、责任边界、信息优势、止损与撤退。</p></div><div class="meta-card"><h3>2024+ V1.0</h3><p>单独抽取成熟期：认知机制、叙事、自我、行动、反馈、概率与选择权。后续继续随5001+语料更新。</p></div></div>
-  </section>
-
-  <div class="footer">说明：这是对公开语料的结构化提炼，不等于作者逐字原话。需要精确引用时，应回查原始回答。</div>
+<div class="mobile"><button id="menu">☰ 目录</button><b>墨苍离思想体系</b><span></span></div>
+<div class="app">
+<aside class="side" id="side">
+<a class="back" href="../index.html">← 返回首页</a>
+<div class="brand">墨苍离思想体系</div>
+<div class="sub">系统阅读 · 时间筛选 · 问题入口</div>
+<input id="search" class="search" placeholder="搜索：祛魅、阶层、婚恋、焦虑…">
+<div class="filters"><button class="active" data-era="all">全部</button><button data-era="early">24以前</button><button data-era="late">24以后</button></div>
+<div class="nav">
+<div class="navtitle">总览</div><a href="#overview">思想总览</a><a href="#themes">7大主题</a><a href="#questions">常见问题</a>
+<div class="navtitle">系统阅读</div><a href="#world">01 认识世界</a><a href="#risk">02 风险与决策</a><a href="#wealth">03 财富与阶层</a><a href="#relation">04 人性与关系</a><a href="#love">05 婚恋</a><a href="#self">06 自我与情绪</a><a href="#evolution">07 思想演化</a>
+<div class="navtitle">资料</div><a href="#evidence">原始出处</a><a href="#versions">版本记录</a>
 </div>
+</aside>
+<main class="main">
+<section class="hero" id="overview">
+<div class="eyebrow">MOCANGLI · THINKING SYSTEM</div>
+<h1>墨苍离</h1>
+<p class="lead">把数千条知乎回答与文章中反复出现的判断方式，整理成一套可以阅读、检索和调用的思想体系。这里不是简单摘抄结论，而是尽量还原他的底层逻辑：他如何理解现实、风险、关系、阶层、自我与选择。</p>
+<div class="thesis">看清现实 → 保护筹码 → 行动反馈 → 扩大选择权</div>
+<div class="map"><div class="m"><b>看清现实</b><span>祛魅 · 事实 · 叙事</span></div><div class="arrow">→</div><div class="m"><b>保护筹码</b><span>风险 · 资源 · 边界</span></div><div class="arrow">→</div><div class="m"><b>行动反馈</b><span>试错 · 环境 · 修正</span></div><div class="arrow">→</div><div class="m"><b>扩大选择</b><span>退出权 · 自主性</span></div></div>
+</section>
+
+<section class="block" id="themes"><div class="section-head"><h2>7大主题</h2><p>每个主题都可继续展开</p></div><div class="theme-grid">
+<article class="theme" data-era="all"><div class="num">01 · WORLD</div><h3>认识世界</h3><p class="one">先把现实和自己脑中的解释分开。</p><p class="muted">这是整套思想的认识论底座：不神化、不先入为主、不拿“应该如此”替代“现实为何如此”。</p><div class="chips"><span>祛魅</span><span>事实与解释</span><span>应然与实然</span><span>独立判断</span><span>叙事</span><span>认知偏差</span><span>语言祛魅</span><span>反本能阅读</span></div><details><summary>展开核心命题</summary><ul><li>优秀不等于全面正确，权威不等于免于检验。</li><li>事实、解释和叙事必须分开处理。</li><li>让你舒服的信息不一定真，让你不舒服的信息也不一定假。</li><li>强叙事会筛选证据，并反过来塑造行为。</li><li>所有模型都只是地图，包括墨苍离自己的模型。</li></ul></details></article>
+<article class="theme" data-era="all"><div class="num">02 · RISK</div><h3>风险与决策</h3><p class="one">先不出局，再考虑赢多少。</p><p class="muted">机会不是只看收益，还要看最坏结果、可逆性、筹码损耗和失败后是否还能继续。</p><div class="chips"><span>先不输</span><span>筹码</span><span>不梭哈</span><span>灾难性错误</span><span>止损</span><span>可逆决策</span><span>最小实验</span><span>反馈</span></div><details><summary>展开核心命题</summary><ul><li>普通人最怕的不是错过一次机会，而是一次错误被清零。</li><li>进入之前先想退出条件，避免沉没成本绑架。</li><li>大决策优先拆成小实验，用现实反馈替代脑内推演。</li><li>坚持不是天然美德；错误路径上坚持只是扩大损失。</li><li>好决策往往不是收益最高，而是下行可控、上行开放。</li></ul></details></article>
+<article class="theme" data-era="all"><div class="num">03 · RESOURCE</div><h3>财富与阶层</h3><p class="one">财富真正重要的地方，是给你“不必如此”的能力。</p><p class="muted">资源不只有钱，还包括时间、注意力、心理韧性、技能、关系、健康与信息。</p><div class="chips"><span>财富</span><span>缓冲</span><span>心理资源</span><span>认知带宽</span><span>阶层概率</span><span>成功祛魅</span><span>技能复利</span><span>选择权</span></div><details><summary>展开核心命题</summary><ul><li>钱的深层价值，是让你能拒绝坏工作、坏关系和坏机会。</li><li>贫困会占用认知带宽，缩短决策时间尺度。</li><li>阶层不是“认知”单变量，而是资源、环境、试错、人脉、运气共同形成的概率。</li><li>普通人更适合长期改变概率分布，而不是寻找一击翻盘。</li><li>成功人士只能作为样本，不能自动升级成规律。</li></ul></details></article>
+<article class="theme" data-era="all"><div class="num">04 · RELATION</div><h3>人性与关系</h3><p class="one">少看标签，多看行为、成本与结构。</p><p class="muted">判断关系，不只看感情表达，还要看需求、资源、依赖、权力、边界、信任和退出权。</p><div class="chips"><span>中性人</span><span>识人</span><span>信任分层</span><span>利益冲突</span><span>边界</span><span>责任外溢</span><span>信息优势</span><span>退出权</span></div><details><summary>展开核心命题</summary><ul><li>多数人不是稳定的“好人”或“坏人”，而会随情境变化。</li><li>利益冲突和承担成本时的选择，比平时说什么更有信息量。</li><li>信任不是一次性开关，而应按事项、金额、后果分层。</li><li>没有可执行后果的边界，往往只是请求。</li><li>坦诚不等于无限自我暴露，信息本身也是资源。</li></ul></details></article>
+<article class="theme" data-era="all"><div class="num">05 · LOVE</div><h3>婚恋</h3><p class="one">短期浓烈，不等于长期稳定。</p><p class="muted">婚恋要同时看吸引、责任、现实条件、冲突修复、边界与长期合作能力。</p><div class="chips"><span>爱情祛魅</span><span>爱情不等式</span><span>长期适配</span><span>责任能力</span><span>现实条件</span><span>情绪价值</span><span>冲突修复</span><span>家庭边界</span></div><details><summary>展开核心命题</summary><ul><li>事业成功 ≠ 好伴侣。</li><li>疯狂追求 ≠ 真心爱，短期投入也不自动证明长期责任。</li><li>欣赏一个人 ≠ 无限信任。</li><li>爱情可以开始关系，但长期稳定需要合作结构。</li><li>情绪价值是真需求，但不能长期替代现实解决能力。</li></ul></details></article>
+<article class="theme" data-era="all"><div class="num">06 · SELF</div><h3>自我与情绪</h3><p class="one">情绪是信息，但不是判决。</p><p class="muted">成熟的自我管理不是“没有情绪”，而是识别情绪在报告什么，并避免让情绪直接接管判断。</p><div class="chips"><span>情绪信号</span><span>焦虑</span><span>控制感</span><span>自尊</span><span>身份</span><span>心理资源</span><span>撤退恢复</span><span>环境设计</span></div><details><summary>展开核心命题</summary><ul><li>焦虑往往报告不确定性与控制不足，而非自动证明事情会变坏。</li><li>“我失败过”不能直接升级成“我是失败者”。</li><li>自尊如果完全建立在职位、收入和别人认可上，就会被外部控制。</li><li>心理资源透支时，先恢复比继续硬撑更理性。</li><li>环境设计常常比单纯依靠意志力有效。</li></ul></details></article>
+<article class="theme" data-era="all"><div class="num">07 · EVOLUTION</div><h3>思想演化</h3><p class="one">2024不是断裂，而是系统化的分界。</p><p class="muted">早期偏向现实生存、外部祛魅和资源保护；后期进一步把认知、叙事、行动、反馈和自主性整合起来。</p><div class="chips"><span>2024以前</span><span>2024以后</span><span>对外祛魅</span><span>对内祛魅</span><span>保筹码</span><span>选择权</span></div><details><summary>展开核心命题</summary><ul><li>早期：重点是不要被现实、关系和环境轻易消耗。</li><li>后期：开始追问自己如何被认知偏差、身份和叙事控制。</li><li>早期“保筹码”，后期升级成“扩大选择权”。</li><li>早期“看利益和结构”，后期加入“行动与反馈”。</li><li>独立判断、风险控制、边界和退出权贯穿前后。</li></ul></details></article>
+</div></section>
+
+<section class="block" id="questions"><div class="section-head"><h2>常见问题</h2><p>从现实问题反向进入思想</p></div><div class="questions">
+<div class="q" data-key="辞职 风险 决策"><b>我要不要辞职？</b><span>先看最坏结果、现金缓冲、可逆性和下一步信息增益。</span></div>
+<div class="q" data-key="识人 信任 人际"><b>这个人值得信任吗？</b><span>看长期行为、承担成本、利益冲突和修复能力。</span></div>
+<div class="q" data-key="婚恋 长期 伴侣"><b>我该不该结婚？</b><span>把激情和长期适配分开，看责任、冲突与合作结构。</span></div>
+<div class="q" data-key="机会 风险 梭哈"><b>这个机会值得赌吗？</b><span>先问输了以后是否还能留在牌桌上。</span></div>
+<div class="q" data-key="阶层 财富 选择权"><b>普通人怎么提高选择权？</b><span>减少连续消耗，建立缓冲、技能复利和替代方案。</span></div>
+<div class="q" data-key="焦虑 情绪 自我"><b>我很焦虑怎么办？</b><span>先拆情绪在报告什么，再拆可控与不可控。</span></div>
+</div></section>
+
+<section class="block" id="world"><div class="section-head"><h2>01 · 认识世界</h2><p>祛魅 · 事实 · 判断</p></div>
+<article class="chapter" data-era="early"><h3>祛魅：把人和事从神坛放回现实</h3><p class="summary">祛魅不是否定一切，而是降低不必要期待，恢复独立判断。</p><div class="remember"><b>记住3句话</b>优秀不等于全面正确。<br>某一种生活不是唯一答案。<br>祛魅的目的不是犬儒，而是减少心理依赖。</div><h4>为什么重要</h4><p>人很容易把财富、学历、权威、爱情、阶层和成功包装成“只要得到它，一切都会解决”。一旦某个对象被神化，你就更容易高估它的价值、低估它的代价，也更容易在得不到时否定自己。</p><h4>怎么用</h4><p>遇到崇拜对象时，不问“他是不是厉害”，而问：我具体在崇拜什么？哪些是事实，哪些是我自动补全的想象？如果没有它，我是否真的失去全部可能？</p><div class="two"><div class="box"><b>不是祛魅</b><p>“所有成功人士都是骗子。”这只是另一种简单叙事。</p></div><div class="box"><b>真正祛魅</b><p>“他在某一领域成功，但这不自动证明他在其他领域也正确。”</p></div></div></article>
+<article class="chapter" data-era="late"><h3>事实、解释与叙事</h3><p class="summary">发生了什么、你怎么解释、你给自己讲了什么故事，是三件不同的事。</p><div class="logic">事实 → 解释 → 叙事 → 行为 → 新证据</div><p>例如，“对方三天没回消息”是事实；“他不在乎我”是解释；“所有人最后都会离开我”已经进入叙事层。后者会进一步改变你的行为，甚至制造新的证据强化原有故事。</p><div class="remember"><b>检查顺序</b>1. 可核验事实是什么？<br>2. 我增加了哪些解释？<br>3. 还有没有其他合理解释？<br>4. 哪些现实结果会证明我判断错了？</div></article>
+<article class="chapter" data-era="late"><h3>独立判断：不要把思考外包</h3><p class="summary">专家、共识和群体意见都可以作为输入，但不能替你完成判断。</p><p>独立判断不是“别人都说对，所以我偏说错”，而是把判断落到证据、激励、反例和反馈上。真正困难的地方是，人天然偏好能降低焦虑、强化身份、提供共鸣的信息。</p><div class="warn"><b>反本能阅读：</b>不要因为一个观点让你舒服就相信，也不要因为它刺耳就拒绝。先问它有没有解释力、证据和现实预测价值。</div></article></section>
+
+<section class="block" id="risk"><div class="section-head"><h2>02 · 风险与决策</h2><p>先不输 · 可逆 · 反馈</p></div>
+<article class="chapter" data-era="early"><h3>先不输，再求赢</h3><p class="summary">普通人真正稀缺的，不只是机会，而是下一次机会出现时你还有筹码。</p><p>收益很大不代表值得做。一个选择如果失败后会让你失去现金流、信用、健康、职业路径或重要关系，那么它的真正风险远高于表面概率。</p><div class="logic">控制下行风险 → 保住筹码 → 留在牌桌上 → 等待更多机会</div><div class="remember"><b>重大风险先问</b>最坏会怎样？我承担得起吗？失败后还能回来吗？有没有更小成本的试法？</div></article>
+<article class="chapter" data-era="all"><h3>止损、撤退与退出</h3><p class="summary">退出不是失败，错误路径上继续投入才可能是真正失败。</p><p>进入工作、合作、关系或项目之前，最好先定义退出条件。否则一旦投入时间、情绪和金钱，人会因为沉没成本越来越难承认判断错误。</p><div class="two"><div class="box"><b>止损</b><ul><li>条件被破坏</li><li>风险明显上升</li><li>继续投入不再产生新信息</li></ul></div><div class="box"><b>撤退</b><ul><li>心理资源透支</li><li>暂时没有解决条件</li><li>先恢复再重新进入</li></ul></div></div></article>
+<article class="chapter" data-era="late"><h3>行动与反馈：别让思考替代现实</h3><p class="summary">认知如果长期不能产生新反馈，很容易变成精神消费。</p><p>很多问题无法在脑内彻底想清楚。职业选择、创业、合作、城市迁移都存在信息缺口，与其不断推演，不如设计一个低成本、可逆、能产生新信息的小实验。</p><div class="logic">假设 → 最小实验 → 现实反馈 → 修正判断 → 扩大 / 停止</div></article></section>
+
+<section class="block" id="wealth"><div class="section-head"><h2>03 · 财富与阶层</h2><p>资源 · 概率 · 选择权</p></div>
+<article class="chapter" data-era="all"><h3>资源真正重要的地方：它能换来“不必如此”</h3><p class="summary">钱、时间、注意力、心理韧性、技能、关系和健康，最终都影响你的选择集合。</p><p>钱的价值不只体现在消费。它还意味着：失业时不用立刻接受最差工作；关系恶化时有能力离开；出现机会时能承受试错；遇到风险时有缓冲。</p><div class="logic">资源 → 缓冲 → 退出权 → 选择权</div></article>
+<article class="chapter" data-era="early"><h3>心理贫困与认知带宽</h3><p class="summary">资源匮乏不仅减少钱，也会持续占用大脑。</p><p>当一个人长期被房租、债务、家庭责任和生存压力占据，他的时间尺度会自然缩短，试错空间也会减少。这也是为什么“多学习、多思考”并不能自动解决所有阶层问题。</p><div class="warn">先止血有时比先升级更重要：减少连续消耗、建立现金缓冲、恢复心理资源，再谈长期跃迁。</div></article>
+<article class="chapter" data-era="late"><h3>阶层是概率，不是一句“认知决定命运”</h3><p class="summary">资源、环境、技能、关系、运气和时间共同形成概率分布。</p><p>成功学经常从成功结果倒推“正确认知”，但忽略起点资源、时代红利、行业环境和幸存者偏差。更现实的策略不是寻找一次翻盘，而是持续增加好结果出现的概率。</p><div class="remember"><b>长期提高概率的几个变量</b>降低下行风险 · 提高信息密度 · 技能复利 · 现金缓冲 · 高质量关系 · 可复用资产</div></article></section>
+
+<section class="block" id="relation"><div class="section-head"><h2>04 · 人性与关系</h2><p>行为 · 结构 · 边界</p></div>
+<article class="chapter" data-era="early"><h3>中性人假设：不要急着给人判终身标签</h3><p class="summary">多数人不是稳定的好人或坏人，而是在不同情境下表现不同。</p><p>一个人可能对家人慷慨、对下属苛刻；对朋友可靠、对陌生人冷漠。把一个人简单归类为“善良”“自私”“坏人”，会让你忽略真正决定行为的情境和成本。</p></article>
+<article class="chapter" data-era="all"><h3>识人：看他在有成本的时候怎么选</h3><p class="summary">长期行为、承担成本、利益冲突和修复能力，比漂亮表达更可靠。</p><div class="remember"><b>识人六看</b>长期行为 · 承担成本 · 一致性 · 对弱者态度 · 利益冲突时选择 · 犯错后的修复</div><p>资源充足时，很多人都可以表现体面。真正有信息量的，是利益冲突、压力和责任出现时，一个人怎么排序。</p></article>
+<article class="chapter" data-era="all"><h3>关系结构：感情之外还有依赖与权力</h3><p class="summary">很多关系问题，本质上不是沟通技巧问题，而是结构问题。</p><div class="logic">需求 → 资源 → 依赖 → 权力 → 信任 → 边界 → 违约成本 → 退出权</div><p>如果一方没有替代选择、非常害怕失去关系，又没有执行边界的能力，那么再好的沟通技巧也很难改变真实权力结构。</p></article>
+<article class="chapter" data-era="early"><h3>边界、责任与信息</h3><p class="summary">善良、真诚和责任都需要范围，否则很容易变成无限消耗。</p><div class="two"><div class="box"><b>没有边界</b><p>“你不要再这样了，我真的很难受。”</p></div><div class="box"><b>可执行边界</b><p>“如果再次发生，我会终止这次合作。”</p></div></div><p>同样，坦诚也不等于主动交出所有秘密、弱点和底牌。信息节制本身也是一种资源管理。</p></article></section>
+
+<section class="block" id="love"><div class="section-head"><h2>05 · 婚恋</h2><p>祛魅 · 长期 · 合作结构</p></div>
+<article class="chapter" data-era="all"><h3>爱情祛魅：感受很真实，但不等于长期适配</h3><p class="summary">爱情可以很强烈，但强烈不能直接证明稳定。</p><p>热恋阶段的追求、承诺、激情和欣赏，都有真实价值。但长期关系会面对财务、责任、家庭、压力、疾病、冲突和重复生活，这些变量无法被短期浓烈覆盖。</p><div class="remember"><b>爱情不等式</b>事业成功 ≠ 好伴侣<br>疯狂追求 ≠ 真心爱<br>欣赏一个人 ≠ 无限信任<br>短期浓烈 ≠ 长期稳定</div></article>
+<article class="chapter" data-era="all"><h3>长期伴侣真正要看什么</h3><p class="summary">不要只问“我爱不爱他”，还要问“我们能不能长期合作”。</p><div class="two"><div class="box"><b>看个人</b><ul><li>情绪稳定</li><li>责任能力</li><li>财务习惯</li><li>边界</li><li>修复能力</li></ul></div><div class="box"><b>看关系</b><ul><li>长期目标</li><li>家庭边界</li><li>冲突规则</li><li>共同利益</li><li>退出成本</li></ul></div></div></article>
+<article class="chapter" data-era="early"><h3>情绪价值与廉价共鸣</h3><p class="summary">被理解很重要，但“只让你舒服”不等于真正帮助你。</p><p>情绪价值是关系中的真实资源；问题在于，如果一段关系不断提供共鸣，却持续强化旧叙事、受害感和逃避现实，那么它可能让你更依赖情绪补偿，而不是获得新的行动能力。</p></article></section>
+
+<section class="block" id="self"><div class="section-head"><h2>06 · 自我与情绪</h2><p>信号 · 身份 · 恢复</p></div>
+<article class="chapter" data-era="late"><h3>情绪是信号，不是判决</h3><p class="summary">情绪值得听，但不能直接当作事实。</p><div class="two"><div class="box"><b>焦虑</b><p>可能在报告不确定性、资源不足、控制感下降。</p></div><div class="box"><b>愤怒</b><p>可能在报告边界被侵犯、利益受损或期待破裂。</p></div><div class="box"><b>嫉妒</b><p>可能暴露真实欲望和社会比较。</p></div><div class="box"><b>羞耻</b><p>可能来自身份威胁和社会评价压力。</p></div></div><p>第一步不是压制情绪，而是问：它在报告什么？这个报告准确吗？我添加了什么解释？</p></article>
+<article class="chapter" data-era="late"><h3>身份不是命运</h3><p class="summary">“我失败过”是经历，“我是失败者”是身份叙事。</p><p>一旦把过去升级成固定身份，行为会开始围绕这个身份展开。改变身份最有效的方法不是反复告诉自己“我很好”，而是创造新的现实反馈，让旧模型逐渐失效。</p><div class="logic">新行动 → 新反馈 → 新证据 → 更新身份模型</div></article>
+<article class="chapter" data-era="early"><h3>允许撤退、休整和恢复</h3><p class="summary">意志力不是无限资源，撤退有时是资源管理。</p><p>持续透支状态下硬撑，可能让错误进一步放大。当情绪、健康和现实资源都处在低位时，先回到安全区、恢复睡眠、现金流和心理稳定，再重新进入问题，往往比强行突破更理性。</p></article>
+<article class="chapter" data-era="late"><h3>环境设计：别把一切都交给意志力</h3><p class="summary">长期环境会塑造默认行为、信息来源和判断方式。</p><p>与其要求自己“每天都要非常自律”，不如让正确行为更容易、错误行为更困难。同时周期性接触新城市、新行业、新人群和新技能，可以防止自己的模型在单一环境中固化。</p></article></section>
+
+<section class="block" id="evolution"><div class="section-head"><h2>07 · 思想演化</h2><p>2024作为成熟化分界</p></div><div class="timeline">
+<div class="era" data-era="early"><h3>2024以前 · 现实生存期</h3><div class="big">对外祛魅，先保护自己。</div><p class="muted">重点放在祛魅、先不输、心理资源、信息优势、边界、止损、撤退和社会博弈。</p><div class="chips"><span>祛魅</span><span>保筹码</span><span>边界</span><span>信息</span><span>止损</span><span>不出局</span></div><p><b>核心问题：</b>怎么避免自己被现实、关系和环境轻易消耗？</p></div>
+<div class="era" data-era="late"><h3>2024以后 · 认知成熟期</h3><div class="big">进一步对自己的认知和叙事祛魅。</div><p class="muted">开始更系统地讨论事实与解释、叙事、自我、认知偏差、行动实验、反馈、概率与选择权。</p><div class="chips"><span>事实</span><span>叙事</span><span>反馈</span><span>概率</span><span>选择权</span><span>自主性</span></div><p><b>核心问题：</b>人如何被自己的模型控制，又如何通过行动与反馈不断修正？</p></div>
+</div><article class="chapter" data-era="all"><h3>贯穿前后的主线</h3><p class="summary">不是两套互相冲突的思想，而是从生存逻辑走向更完整的认知—行动系统。</p><div class="logic">早期：对外祛魅 → 保住筹码 → 建立边界<br>后期：对内祛魅 → 行动反馈 → 扩大选择权</div><p>独立判断、风险控制、边界、退出权和现实反馈一直没有消失。变化更像是：早期提出了大量实用原则，后期开始解释这些原则背后的认知机制，并把它们连接成更系统的框架。</p></article></section>
+
+<section class="block" id="evidence"><div class="section-head"><h2>原始出处</h2><p>后续持续补充</p></div><div class="evidence"><div class="tagbox"><b>明确观点</b><span>语料中有直接对应表达，后续补回答编号、日期、原问题与链接。</span></div><div class="tagbox"><b>框架推演</b><span>作者没有直接回答当前问题，但可由多个稳定观点推导。</span></div><div class="tagbox"><b>分析补充</b><span>整理者为帮助理解所做的结构化解释、批判或延伸。</span></div></div></section>
+
+<section class="block" id="versions"><div class="section-head"><h2>版本记录</h2><p>框架随语料增长持续校正</p></div><div class="two"><div class="box"><b>V1.0</b><p>基于前4000条回答，建立认知、博弈、行动与选择权主体框架。</p></div><div class="box"><b>V1.1</b><p>加入4001—5000条回答，强化祛魅、先不输、心理资源、信息优势、责任边界、止损止盈等内容。</p></div><div class="box"><b>2024+ V1.0</b><p>单独提炼2024以后成熟期，突出认知、叙事、行动、反馈、概率与自主性。</p></div><div class="box"><b>后续</b><p>继续补5001以后回答，并为每个核心章节增加原文证据与思想演化记录。</p></div></div></section>
+<div class="note">说明：本站展示的是基于公开语料提炼出的思想模型，不等于作者逐字原话。使用时应区分“明确观点”“框架推演”和“分析补充”。</div>
+</main></div>
 <script>
-const search=document.getElementById('search');
-const chapters=[...document.querySelectorAll('.chapter')];
-const themes=[...document.querySelectorAll('.theme')];
-let era='all';
-function apply(){const q=search.value.trim().toLowerCase();chapters.forEach(c=>{const eraOk=era==='all'||(c.dataset.era||'').split(' ').includes(era);const textOk=!q||c.innerText.toLowerCase().includes(q);c.classList.toggle('hidden',!(eraOk&&textOk));if(q&&eraOk&&textOk)c.open=true});themes.forEach(t=>{const textOk=!q||t.innerText.toLowerCase().includes(q);t.classList.toggle('hidden',!textOk)})}
-document.querySelectorAll('.filterbar button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filterbar button').forEach(x=>x.classList.remove('active'));b.classList.add('active');era=b.dataset.era;apply();document.getElementById('manual').scrollIntoView({behavior:'smooth'})}));
-search.addEventListener('input',apply);
-document.getElementById('askBtn').addEventListener('click',()=>{apply();document.getElementById('manual').scrollIntoView({behavior:'smooth'})});
-document.querySelectorAll('.question').forEach(q=>q.addEventListener('click',()=>{search.value=q.dataset.q;apply();document.getElementById('manual').scrollIntoView({behavior:'smooth'})}));
+const search=document.getElementById('search');const filters=[...document.querySelectorAll('.filters button')];let era='all';function apply(){const q=search.value.trim().toLowerCase();document.querySelectorAll('[data-era]').forEach(el=>{const e=el.dataset.era;const eraOk=era==='all'||e==='all'||e===era;const text=el.innerText.toLowerCase();const qOk=!q||text.includes(q);el.classList.toggle('hidden',!(eraOk&&qOk))})}filters.forEach(b=>b.onclick=()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');era=b.dataset.era;apply()});search.oninput=apply;document.querySelectorAll('.q').forEach(q=>q.onclick=()=>{search.value=q.dataset.key.split(' ')[0];apply();document.querySelector('#world').scrollIntoView({behavior:'smooth'})});const menu=document.getElementById('menu'),side=document.getElementById('side');if(menu)menu.onclick=()=>side.classList.toggle('open');document.querySelectorAll('.nav a').forEach(a=>a.onclick=()=>side.classList.remove('open'));
 </script>
 </body></html>
