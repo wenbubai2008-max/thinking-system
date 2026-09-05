@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>问题诊断与调用系统 · 大象思想</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.diaghero{background:linear-gradient(135deg,#fff,#f3f4f6)}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 18px}
+.quick button,.runbtn,.clearbtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;font:inherit;font-size:12px;cursor:pointer}
+.quick button:hover,.runbtn:hover{background:var(--soft)}
+.inputbox{width:100%;min-height:130px;resize:vertical;border:1px solid var(--line);border-radius:14px;padding:15px 16px;font:inherit;line-height:1.7;background:#fff;color:var(--text)}
+.actions{display:flex;gap:9px;margin-top:10px}
+.runbtn{background:var(--text);color:#fff;border-color:var(--text);font-weight:800}
+.clearbtn{color:var(--muted)}
+.result{display:none;margin-top:16px}
+.result.show{display:block}
+.fingerprint{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin:12px 0}
+.fp{padding:15px;border-radius:13px;background:var(--soft)}
+.fp strong{display:block;font-size:18px}
+.fp span{font-size:11px;color:var(--muted)}
+.route{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.route a{padding:8px 10px;border-radius:999px;background:var(--soft);font-size:11px;font-weight:850}
+.route .primary{background:var(--text);color:#fff}
+.callout{padding:18px;border:1px solid var(--line);border-radius:14px;background:#fff;margin:10px 0}
+.callout h3{margin:0 0 6px!important;font-size:18px}
+.callout p{margin:0;color:#4b515a;font-size:13px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.step{padding:16px;background:var(--soft);border-radius:13px}
+.step b{display:block;font-size:12px;margin-bottom:5px}
+.step span{font-size:12px;color:#4c525a}
+.diaggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.diagcard{padding:17px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.diagcard b{display:block;font-size:15px;margin-bottom:4px}
+.diagcard span{font-size:12px;color:var(--muted)}
+.diagcard small{display:block;margin-top:9px;font-size:10px;color:var(--muted);font-weight:800}
+.template{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.template:first-of-type{border-top:0}
+.tnum{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--soft);font-size:11px;font-weight:900}
+.template b{font-size:14px}
+.template p{margin:3px 0 0;color:#4c525a;font-size:12px}
+.miniwarn{font-size:11px;color:var(--muted);margin-top:10px}
+@media(max-width:760px){.fingerprint,.steps,.diaggrid{grid-template-columns:1fr}.actions{flex-direction:column}.runbtn,.clearbtn{width:100%;border-radius:11px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top"><a href="../daxiang.html">← 大象思想体系</a><span>调用层 · 问题诊断</span></div>
+
+  <section class="hero diaghero">
+    <div class="eyebrow">DAXIANG · DIAGNOSTIC LAYER</div>
+    <h1>问题诊断与调用系统</h1>
+    <p class="lead">把现实问题先拆成“结构、叙事、能力、选择权、重启、边界、关系、情绪、努力、意义”等问题，再调用对应思想节点。目的不是给一句金句，而是找到真正卡住你的那一层。</p>
+    <div class="role"><small>使用原则</small>先诊断问题类型，再调用思想。这个网页使用本地规则匹配，不是在线 AI；它适合做“第一轮分诊”，最终判断仍要回到具体事实、证据和现实约束。</div>
+  </section>
+
+  <section class="section">
+    <h2>输入你的问题</h2>
+    <p class="section-intro">可以直接写一句话，也可以先点一个常见场景作为示例。</p>
+    <div class="quick">
+      <button data-q="工作越来越不稳定，我想辞职，但又怕找不到下一份工作">工作不稳定 / 想辞职</button>
+      <button data-q="我每天很忙也很努力，但越来越不知道自己为什么要做这些">很努力但越来越迷茫</button>
+      <button data-q="父母一直催我结婚，我其实不确定自己想不想结婚">父母催婚</button>
+      <button data-q="这段关系让我很累，但我又害怕分手以后一个人生活">关系消耗 / 不敢离开</button>
+      <button data-q="孩子不听我的安排，我担心他走错路，所以总想替他决定">孩子不听话 / 家长焦虑</button>
+      <button data-q="领导总否定我，我开始怀疑是不是自己真的能力很差">领导否定 / 自我怀疑</button>
+      <button data-q="我总是想很多，担心以后出问题，明知道没用还是停不下来">焦虑 / 内耗</button>
+      <button data-q="我已经赚到一些钱，但生活还是没什么感觉，不知道活着图什么">成功后仍然空</button>
+    </div>
+    <textarea id="problem" class="inputbox" placeholder="例如：我现在工作很稳定，但看不到发展，想换行业，又担心年龄和收入下降。我到底该继续忍，还是换？"></textarea>
+    <div class="actions">
+      <button id="run" class="runbtn">开始诊断</button>
+      <button id="clear" class="clearbtn">清空</button>
+    </div>
+    <div class="miniwarn">诊断结果是基于关键词与场景规则的思想调用，不替代法律、医疗、财务等专业判断。</div>
+
+    <div id="result" class="result">
+      <h3>诊断结果</h3>
+      <div class="fingerprint">
+        <div class="fp"><strong id="primaryType">—</strong><span>主要问题层</span></div>
+        <div class="fp"><strong id="secondaryType">—</strong><span>次要问题层</span></div>
+        <div class="fp"><strong id="confidence">—</strong><span>规则匹配强度</span></div>
+      </div>
+      <div id="summary" class="callout"></div>
+
+      <h3>建议调用的思想节点</h3>
+      <div id="route" class="route"></div>
+
+      <h3>大象式判断顺序</h3>
+      <div id="questions" class="logic"></div>
+
+      <h3>行动路径</h3>
+      <div id="steps" class="steps"></div>
+
+      <h3>不要急着做的事</h3>
+      <div id="avoid" class="logic"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>十类问题的分诊框架</h2>
+    <p class="section-intro">同一个现实问题可能同时落在多个层级。诊断重点是先找到“主要瓶颈”。</p>
+    <div class="diaggrid">
+      <div class="diagcard"><b>01 · 结构问题</b><span>资源、阶层、制度、行业、产业、平台限制。</span><small>常调用：01 / 02</small></div>
+      <div class="diagcard"><b>02 · 叙事问题</b><span>“这个年龄必须怎样”“别人都这样”“不这样就失败”。</span><small>常调用：03 / 04 / 05</small></div>
+      <div class="diagcard"><b>03 · 主体性问题</b><span>不知道自己真正想要什么，决定长期由别人代做。</span><small>常调用：05 / 06</small></div>
+      <div class="diagcard"><b>04 · 能力问题</b><span>想改变，但缺知识、技能、经验、方法或独立解决问题能力。</span><small>常调用：07 / 11</small></div>
+      <div class="diagcard"><b>05 · 选择权问题</b><span>知道不想要什么，却因为钱、职位、关系、身份而没法退出。</span><small>常调用：08 / 09</small></div>
+      <div class="diagcard"><b>06 · 边界问题</b><span>不敢拒绝、害怕冲突、替别人承担情绪和责任。</span><small>常调用：10 / 15</small></div>
+      <div class="diagcard"><b>07 · 关系问题</b><span>关系长期单向、过度依赖、害怕失去、价值与参与失衡。</span><small>常调用：10 / 15</small></div>
+      <div class="diagcard"><b>08 · 情绪问题</b><span>焦虑、内耗、压抑、过度自责，情绪开始接管行动。</span><small>常调用：09 / 10 / 11 / 16</small></div>
+      <div class="diagcard"><b>09 · 努力方向问题</b><span>很忙、很累、很卷，但能力、反馈和选择权没有增加。</span><small>常调用：11 / 12 / 13 / 14</small></div>
+      <div class="diagcard"><b>10 · 意义问题</b><span>目标完成后仍空，或不知道为什么继续追求成功。</span><small>常调用：14 / 16 / 17 / 18</small></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>通用七问</h2>
+    <p class="section-intro">如果不使用自动诊断，可以直接用这七问手工调用整套大象思想。</p>
+    <div class="template"><div class="tnum">01</div><div><b>这是事实，还是别人告诉我的规则？</b><p>先分开现实约束和社会脚本，避免把“大家都这样”误当成自然规律。</p></div></div>
+    <div class="template"><div class="tnum">02</div><div><b>这个规则背后的利益、资源和激励是什么？</b><p>把问题从道德评价还原成结构，判断真正改变结果的变量。</p></div></div>
+    <div class="template"><div class="tnum">03</div><div><b>这真的是我想要的吗？</b><p>把“应该”与“想要”分开，检查人生的主语是否仍然是自己。</p></div></div>
+    <div class="template"><div class="tnum">04</div><div><b>我缺的是认知、能力、资源，还是行动？</b><p>不同瓶颈需要不同工具，不能用更努力解决所有问题。</p></div></div>
+    <div class="template"><div class="tnum">05</div><div><b>这件事会增加我未来的选择权吗？</b><p>把钱、学历、技能、经验统一放到“可选择空间”里判断。</p></div></div>
+    <div class="template"><div class="tnum">06</div><div><b>如果失败，我能不能退出、止损或重新开始？</b><p>决策不必追求永远正确，但需要提前设计容错和重启路径。</p></div></div>
+    <div class="template"><div class="tnum">07</div><div><b>就算最后赢了，这真的是我想过的生活吗？</b><p>避免能力、努力和成功重新变成新的枷锁。</p></div></div>
+  </section>
+
+  <section class="section">
+    <h2>调用逻辑</h2>
+    <div class="bridge"><small>核心原则</small>大象式回答不是先安慰，也不是先给结论，而是通常沿着：<b>事实与结构 → 主体性 → 能力与资源 → 选择权与容错 → 边界 → 生活价值</b>逐层判断。</div>
+    <div class="logic" style="margin-top:10px">
+      <div class="item"><b>结构先于自责</b><br>如果问题来自行业、资源、权力或制度，不要先把全部因果归到“我不够好”。</div>
+      <div class="item"><b>主体性先于方案</b><br>连自己想要什么都没分清时，直接找“最佳方案”通常只是在替默认脚本优化。</div>
+      <div class="item"><b>现实能力支撑自由</b><br>精神上想通并不能自动获得退出权，需要技能、钱、信息和可迁移资源。</div>
+      <div class="item"><b>生活反过来纠偏成长</b><br>任何成长路径如果长期让生活越来越窄，都需要重新检查目标本身。</div>
+    </div>
+  </section>
+
+  <nav class="navbox">
+    <a href="thought-map.html">← 思想关系网络</a>
+    <a href="evidence-index.html">证据索引 →</a>
+  </nav>
+</main>
+
+<script>
+const N={
+  1:['世界模型','01-world-model.html'],2:['阶层与机会','02-class-opportunity.html'],3:['权威祛魅','03-authority.html'],
+  4:['社会叙事','04-social-narrative.html'],5:['叙事主权','05-narrative-sovereignty.html'],6:['主体性','06-subjectivity.html'],
+  7:['能力','07-capability.html'],8:['选择权','08-choice.html'],9:['可重启能力','09-restart.html'],10:['边界','10-boundary.html'],
+  11:['认知—行动','11-feedback.html'],12:['反苦难崇拜','12-suffering.html'],13:['反努力崇拜','13-effort.html'],
+  14:['反成功崇拜','14-success.html'],15:['关系','15-relationships.html'],16:['快乐','16-happiness.html'],
+  17:['生命体验','17-life-experience.html'],18:['人生意义','18-meaning.html']
+};
+
+const TYPES={
+ structure:{name:'结构问题',nodes:[1,2,7,8],keys:['行业','经济','公司','平台','资源','家庭条件','阶层','学历门槛','政策','制度','机会','失业','裁员','工作不稳定','收入低','工资低','年龄限制','环境','城市'],summary:'先判断哪些限制来自外部结构，哪些仍是可积累变量。不要把结构性约束全部翻译成个人失败。',qs:['真正限制结果的是能力、资源、关系、规则还是行业环境？','如果只换一个人、不换机制，结果会不会仍然一样？','哪些约束短期不可控，哪些变量还能通过时间积累？','当前选择是否会扩大未来的可行域？'],steps:['列出现实约束','把可控与不可控变量分开，不用情绪代替事实。','积累可迁移资产','优先技能、现金缓冲、作品、信息与关系，而不是只守住一个位置。','扩大选择空间','在不裸奔的前提下创造第二路径。'],avoid:['不要先把所有问题归因成“我不够优秀”。','不要只靠意志硬扛一个长期没有改善空间的结构。']},
+ narrative:{name:'叙事问题',nodes:[3,4,5,6],keys:['应该','必须','别人都','大家都','这个年龄','面子','体面','正常人','不结婚','买房','成功','父母要求','社会压力','别人怎么看','丢脸','比较'],summary:'先检查困扰你的究竟是现实成本，还是一个被内化的“正常人生脚本”。',qs:['如果没有任何人评价，我还会追求这个目标吗？','这个“必须”是谁规定的？','它有现实工具价值，还是被我当成了终极价值？','如果不按这个脚本生活，最真实的成本到底是什么？'],steps:['拆掉“应该”','把事实、传统、评价和个人愿望分别写出来。','重新排序','明确什么值得保留，什么只是身份证明。','承担自己的版本','主动选择，同时接受与主流不同的成本。'],avoid:['不要为了反主流而反主流。','不要把“做自己”理解成现实后果不存在。']},
+ subject:{name:'主体性问题',nodes:[5,6,9,18],keys:['不知道自己想要什么','不知道想不想','犹豫','听父母','别人替我决定','没有主见','选择困难','人生方向','我到底想','纠结','后悔'],summary:'问题的核心可能不是“哪个选项最好”，而是你还没有建立自己的价值排序和承担机制。',qs:['这个选择如果没人知道，我还会选吗？','我是在主动选择，还是只想逃离眼前的不舒服？','我愿意为哪个方案承担长期代价？','情况变化后，我是否允许自己重新选择？'],steps:['先定义自己要什么','不用急着求最优解，先写出真正不能牺牲的三件事。','做小型试验','用低成本行动验证，而不是只在脑中比较。','选择并承担','接受所有选择都会关闭其他可能。'],avoid:['不要把“别人替我决定”伪装成自己没有责任。','不要追求一个完全没有代价的选择。']},
+ capability:{name:'能力问题',nodes:[7,11,8],keys:['不会','能力不够','技能','经验不足','不知道怎么做','学不会','转行','找不到工作','竞争力','专业','学习','执行力','解决问题','没经验'],summary:'这里需要的不是更多自我评价，而是把问题拆成可训练、可反馈、可迁移的能力。',qs:['离开现在的平台，我还能带走什么能力？','我缺的是知识、练习、反馈还是场景经验？','什么是最小可验证的行动？','怎样判断自己真的变强，而不是只是学得更多？'],steps:['定义能力缺口','把“我不行”改写成具体技能和任务。','建立反馈回路','用真实任务而不是无限准备来验证。','形成可迁移成果','作品、案例、方法和解决问题记录都要能带走。'],avoid:['不要把收藏课程、看书数量当成能力。','不要等全部准备好才进入真实场景。']},
+ choice:{name:'选择权问题',nodes:[8,9,7,14],keys:['不敢辞职','没得选','离不开','不敢离开','房贷','负债','存款','钱不够','依赖','被绑住','没有退路','不能换','怕找不到','保障','安全感'],summary:'你可能已经知道自己不想要什么，但现实缓冲不足，让精神上的自由没有转换成退出权。',qs:['如果没有现金流压力，我还会继续这个选择吗？','最坏结果是什么，真的不可逆吗？','需要多少资源才能获得一次安全退出？','我现在积累的是选择权，还是新的固定负担？'],steps:['计算退出门槛','把模糊恐惧变成时间、现金和能力数字。','先造第二条路','在离开之前建立副路径、试投、试做或缓冲。','设置止损条件','提前定义什么情况出现就必须离开。'],avoid:['不要把一时冲动等同于自由。','不要继续增加会锁死自己的固定成本。']},
+ restart:{name:'可重启问题',nodes:[9,11,8],keys:['失败','怕错','后悔','来不及','人生完了','完蛋','年龄大','重新开始','重来','沉没成本','坚持不下去','错过','改行太晚'],summary:'很多焦虑来自把一次选择想象成人生永久封盘。需要区分真正不可逆事项和可以修复、止损、重启的路径。',qs:['最坏结果到底是什么？','哪些损失不可逆，哪些只是时间或面子成本？','如果失败，我可以从哪里重新开始？','我现在坚持的是方向，还是沉没成本？'],steps:['做最坏情境表','把灾难化想象变成具体后果。','提前准备重启资源','现金、技能、联系人、证件、作品和备用方案。','缩短反馈周期','越早得到真实反馈，越便宜地纠错。'],avoid:['不要因为已经投入很多就继续错误方向。','不要把所有变化都解释成人生崩盘。']},
+ boundary:{name:'边界问题',nodes:[10,15,6],keys:['不敢拒绝','不好意思','怕得罪','被欺负','欺负','霸凌','领导骂','控制我','干涉','越界','讨好','老实人','冲突','不尊重','让我不舒服','甩锅'],summary:'这里不一定需要“更会忍”，而是需要区分善良和退让，并让持续侵犯产生现实成本。',qs:['我有没有清楚表达过边界？','这次退让会不会改变对方以后对我的预期？','如果继续侵犯，我有哪些规则、证据和退出工具？','我是在体谅别人，还是因为害怕冲突放弃自己？'],steps:['明确边界句','具体说清什么行为不能接受，而不是只在心里生气。','设计后果','证据、升级、减少合作、退出等都要可执行。','提升冲突耐受','允许别人暂时不高兴，不把所有舒适感当自己的责任。'],avoid:['不要用无限解释换取别人尊重。','不要把“成熟”理解成没有底线。']},
+ relationship:{name:'关系问题',nodes:[15,10,6,16],keys:['分手','婚姻','结婚','伴侣','男朋友','女朋友','老婆','老公','出轨','关系','爱情','相爱','冷淡','不爱我','离婚','孤独','依赖对方','害怕失去','父母关系'],summary:'先判断这是感情问题、结构失衡还是过度依赖。一个人的付出不能单独完成“两个人的关系”。',qs:['这段关系是不是只有一个人在持续维持？','双方还在主动参与，还是只剩惯性和恐惧？','我害怕失去的是这个人，还是失去安全感？','如果关系结束，我是否仍有自己的生活结构？'],steps:['看双向事实','先看行动、投入、尊重和边界，不只看承诺。','恢复自己的生活结构','工作、朋友、兴趣和经济能力不要全部外包给关系。','再决定去留','在依赖降低后重新判断是否还愿意共同生活。'],avoid:['不要用更多单方面付出来购买爱。','不要因为害怕孤独，把关系本身当成唯一安全来源。']},
+ emotion:{name:'情绪问题',nodes:[11,9,10,16],keys:['焦虑','内耗','想太多','担心','害怕','不安','情绪','难过','抑郁','自责','敏感','压力','失眠','否定自己','怀疑自己','崩溃','烦躁'],summary:'情绪首先是信息，不需要立刻消灭。先把事实、感受、解释和行动分开，再决定需要处理外部问题还是内部反应。',qs:['现在发生的事实是什么？','我对事实又加了什么解释？','这个情绪在提醒我边界、风险、欲望还是不确定性？','今天有哪些最小行动能增加真实信息？'],steps:['事实与解释分栏','把“发生了什么”和“我担心会怎样”分别写。','找情绪对应的现实变量','能处理就行动，不能控制就停止重复计算。','恢复身体和生活节奏','睡眠、运动、社交、休息是判断能力的一部分。'],avoid:['不要因为有情绪就给自己贴“脆弱”的标签。','不要试图靠无限思考获得绝对确定性。']},
+ effort:{name:'努力方向问题',nodes:[11,12,13,14,7],keys:['努力','很忙','加班','内卷','坚持','累','拼命','奋斗','996','没有进步','越努力','工作很多','忙不过来','卷','付出很多'],summary:'问题可能不是“还不够努力”，而是努力没有形成反馈、能力或选择权，甚至在用忙碌逃避方向判断。',qs:['这份投入增加了什么可迁移能力？','如果没人看见，我还会这样忙吗？','关键瓶颈是什么，我是不是一直在做容易量化的事情？','继续投入的边际回报还值得吗？'],steps:['停一次机械加码','先暂停“再多做一点”的自动反应。','定义有效指标','用能力、结果、反馈和选择权而非疲惫程度衡量。','砍掉低回报投入','把时间给真正改变瓶颈的任务和恢复。'],avoid:['不要把累当成进步证据。','不要因为坚持很久，就拒绝重新判断方向。']},
+ meaning:{name:'意义问题',nodes:[14,16,17,18,6],keys:['意义','活着','为什么活','空虚','无聊','没意思','成功以后','赚到钱','人生','价值','目标完成','不知道为了什么','快乐','体验','生活没感觉'],summary:'当生存与能力问题不再是主要矛盾，问题会回到：你究竟愿意把有限时间用在什么生活上。',qs:['如果没有统一评分表，我愿意为什么长期投入？','哪些事情即使没人奖励，我仍然觉得值得？','过去一年哪些时刻让我真正有“活着”的感觉？','我是不是把所有快乐都推迟到成功以后？'],steps:['停止把成功当自动答案','先承认目标完成也不会自动生成意义。','恢复真实体验','关系、兴趣、自然、旅行、创造和休息都可以成为生活内容。','主动写自己的长期结构','选择值得承担的关系、工作与生活，而不是等待意义自己出现。'],avoid:['不要用新的“自我提升计划”填补所有空虚。','不要把快乐等同于短期刺激，也不要把它永远推迟。']}
+};
+
+function scoreText(text,type){const t=TYPES[type];let s=0;for(const k of t.keys){if(text.includes(k))s+=Math.max(1,Math.min(4,k.length/2));}return s;}
+function analyze(text){const entries=Object.keys(TYPES).map(k=>[k,scoreText(text,k)]).sort((a,b)=>b[1]-a[1]);let primary=entries[0],secondary=entries[1];if(primary[1]===0){primary=['subject',1];secondary=['structure',0];}const max=primary[1],conf=max>=12?'高':max>=6?'中':'低';render(primary[0],secondary[0],conf);}
+function render(pk,sk,conf){const p=TYPES[pk],s=TYPES[sk];document.getElementById('primaryType').textContent=p.name;document.getElementById('secondaryType').textContent=s.name;document.getElementById('confidence').textContent=conf;document.getElementById('summary').innerHTML='<h3>先不要急着求结论</h3><p>'+p.summary+' '+(sk!==pk?'同时，问题里也存在“'+s.name+'”的信号，需要一起检查。':'')+'</p>';const ordered=[...new Set([...p.nodes,...s.nodes])].slice(0,6);document.getElementById('route').innerHTML=ordered.map((n,i)=>'<a class="'+(i===0?'primary':'')+'" href="'+N[n][1]+'">'+String(n).padStart(2,'0')+' · '+N[n][0]+'</a>').join('');document.getElementById('questions').innerHTML=p.qs.map(x=>'<div class="item">'+x+'</div>').join('');document.getElementById('steps').innerHTML=p.steps.reduce((a,x,i,arr)=>{if(i%2===0)a.push([x,arr[i+1]||'']);return a;},[]).map((x,i)=>'<div class="step"><b>'+(i+1)+' · '+x[0]+'</b><span>'+x[1]+'</span></div>').join('');document.getElementById('avoid').innerHTML=p.avoid.map(x=>'<div class="mis">'+x+'</div>').join('');document.getElementById('result').classList.add('show');document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});}
+document.querySelectorAll('.quick button').forEach(b=>b.onclick=()=>{document.getElementById('problem').value=b.dataset.q;analyze(b.dataset.q)});
+document.getElementById('run').onclick=()=>{const t=document.getElementById('problem').value.trim();if(!t){document.getElementById('problem').focus();return;}analyze(t)};
+document.getElementById('clear').onclick=()=>{document.getElementById('problem').value='';document.getElementById('result').classList.remove('show')};
+</script>
+</body>
+</html>
