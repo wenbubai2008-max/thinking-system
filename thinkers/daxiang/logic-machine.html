@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>最小逻辑机器 · 大象思想</title><link rel="stylesheet" href="style.css">
+<style>
+.logicHero{background:linear-gradient(135deg,#fff,#f2f3f5)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}.stats div{padding:13px;background:var(--soft);border-radius:12px;text-align:center}.stats b{display:block;font-size:22px}.stats span{font-size:9px;color:var(--muted)}
+.layers{display:grid;gap:10px}.layer{border:1px solid var(--line);border-radius:15px;background:#fff;padding:17px}.layerhead{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start}.lname{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:.08em}.layer h3{margin:1px 0 4px;font-size:18px}.layer p{margin:0;color:#4b515a;font-size:11px}.nodes{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}.nodebtn{border:1px solid var(--line);background:var(--soft);border-radius:999px;padding:7px 9px;font:inherit;font-size:10px;font-weight:850;cursor:pointer}.nodebtn:hover,.nodebtn.active{background:#17191c;color:#fff;border-color:#17191c}.bnode{border-style:dashed}
+.detail{display:none;margin-top:12px;padding:16px;border:1px solid var(--line);border-radius:13px;background:#fafafa}.detail.show{display:block}.detail h3{margin:3px 0 7px}.meta{font-size:10px;color:var(--muted)}.relgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.rel{padding:12px;background:#fff;border:1px solid var(--line);border-radius:11px;font-size:10px}.rel b{display:block;font-size:11px;margin-bottom:4px}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rule{padding:15px;border:1px solid var(--line);border-radius:13px;background:#fff}.rule b{display:block;font-size:13px}.rule p{margin:5px 0 0;font-size:10px;color:#4b515a}.priority{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.prio{padding:15px;background:var(--soft);border-radius:12px}.prio small{font-size:9px;color:var(--muted);font-weight:900}.prio b{display:block;font-size:13px;margin:4px 0}.prio p{font-size:10px;color:#4b515a;margin:0}
+.scenarios{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.scenarios button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 10px;font:inherit;font-size:10px;font-weight:850;cursor:pointer}.scenarios button.active{background:#17191c;color:#fff}.trace{display:grid;gap:7px}.tstep{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}.tid{width:38px;height:38px;border-radius:10px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900}.tstep b{font-size:12px}.tstep p{font-size:10px;color:#4b515a;margin:3px 0 0}.resultbox{margin-top:9px;padding:14px;border-left:3px solid #343a40;background:#fafafa;font-size:11px}
+.algorithm{display:grid;gap:7px}.alg{display:grid;grid-template-columns:36px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--line)}.alg:first-child{border-top:0}.anum{width:31px;height:31px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900}.alg b{font-size:12px}.alg span{display:block;font-size:10px;color:#4b515a;margin-top:2px}.warning{padding:14px;border-left:3px solid #343a40;background:#fafafa;font-size:11px}
+@media(max-width:760px){.stats,.rules,.priority,.relgrid{grid-template-columns:1fr}.layerhead{grid-template-columns:1fr}}
+</style>
+</head><body><main class="wrap">
+<div class="top"><a href="../daxiang.html">← 大象思想体系</a><span>逻辑层 · 最小推演系统</span></div>
+<section class="hero logicHero"><div class="eyebrow">DAXIANG · MINIMAL LOGIC MACHINE V1.0</div><h1>最小逻辑机器</h1><p class="lead">16条最小内核不再只是静态观点，而被排成“现实校准 → 目标所有权 → 能力与学习 → 自由基础设施 → 生活价值”五层推演系统。这里明确哪些原则是前提、哪些负责纠偏、哪些负责价值落点，以及发生冲突时怎样裁决。</p><div class="role"><small>重要口径</small>“逻辑机器”“公理优先级”都是本站研究建模语言，不是作者原话。12条A层硬核公理负责现实约束和行动骨架；4条B层方向公理负责价值方向。B层不能推翻A层事实约束，但可以在多个现实可行方案之间决定“哪一个更值得过”。</div><div class="stats"><div><b>5</b><span>推演层级</span></div><div><b>16</b><span>最小公理</span></div><div><b>23</b><span>主要推导关系</span></div><div><b>9</b><span>冲突裁决规则</span></div><div><b>7</b><span>通用推演步骤</span></div></div></section>
+<section class="section"><h2>五层逻辑结构</h2><p class="section-intro">先处理事实与约束，再问“这是谁的人生”，然后建设能力与自由，最后才讨论什么生活值得过。点击任一公理查看它的上游和下游。</p><div id="layers" class="layers"></div><div id="detail" class="detail"></div></section>
+<section class="section"><h2>23条主要推导关系</h2><div class="rules" id="rules"></div></section>
+<section class="section"><h2>冲突时谁优先？</h2><p class="section-intro">这里不是设置永恒道德等级，而是规定不同问题应先经过哪个校验器，避免单条观点被极端化。</p><div class="priority" id="priority"></div></section>
+<section class="section"><h2>现实问题推演器</h2><p class="section-intro">选择一个典型问题，查看最小逻辑机器怎样逐层推导。结论是条件式判断，不是“一句话替你做决定”。</p><div id="scenarios" class="scenarios"></div><div id="trace" class="trace"></div><div id="scenarioResult" class="resultbox"></div></section>
+<section class="section"><h2>通用7步算法</h2><div class="algorithm">
+<div class="alg"><div class="anum">01</div><div><b>事实校准</b><span>先问行业、资源、权力、制度、真实成本是什么；不要先自责，也不要先讲价值观。调用 AX01 / AX02 / AX03。</span></div></div>
+<div class="alg"><div class="anum">02</div><div><b>目标所有权</b><span>分开“别人写好的应该”和“我愿意承担的选择”。调用 AX04，必要时调用 AX13。</span></div></div>
+<div class="alg"><div class="anum">03</div><div><b>能力校验</b><span>把愿望翻译成能否解决真实问题、是否可迁移、能否获得外部反馈。调用 AX05 / AX09。</span></div></div>
+<div class="alg"><div class="anum">04</div><div><b>努力与痛苦校验</b><span>如果方案很累或很苦，问它是否真的转化成能力、反馈和结果，而不是把痛苦本身当证明。调用 AX10 / AX11。</span></div></div>
+<div class="alg"><div class="anum">05</div><div><b>自由基础设施</b><span>看钱、技能、缓冲、替代路径能否转成拒绝权、退出权和重启能力。调用 AX06 / AX07。</span></div></div>
+<div class="alg"><div class="anum">06</div><div><b>边界与关系校验</b><span>持续侵犯时先恢复平等与责任边界；长期关系再检查是否仍是两个主体的主动参与。调用 AX08 / AX15。</span></div></div>
+<div class="alg"><div class="anum">07</div><div><b>生活价值校验</b><span>最后问：即使方案能赢，它是否让生活更值得过？快乐、关系、体验和意义有没有被永久推迟？调用 AX12 / AX14 / AX16。</span></div></div>
+</div></section>
+<section class="section"><h2>逻辑机器的最终输出格式</h2><div class="warning"><b>它不输出“你应该怎么办”这种无条件命令。</b><br>稳定格式应当是：<b>在这些事实成立的前提下 → 你的主要瓶颈是X → 先补Y变量 → 当退出/重启条件达到Z时 → 方案A比方案B更符合你的主体性与生活方向。</b> 如果事实变化，结论必须允许重算。</div></section>
+<nav class="navbox"><a href="core-axioms.html">← 16条最小内核</a><a href="diagnose.html">审计后诊断系统 →</a></nav>
+</main><script>
+const AX={
+AX01:{layer:'现实校准',level:'A',title:'结构决定起点与可行域，但不决定每一步。',evidence:'A000299 / A000117 / A000093'},
+AX02:{layer:'现实校准',level:'A',title:'身份和头衔不自动等于能力，判断最终回到证据与解决问题能力。',evidence:'A000039 / A000176 / A000133 / A000150 / A000107'},
+AX03:{layer:'现实校准',level:'A',title:'“应该”不是事实，社会脚本必须与现实成本分开计算。',evidence:'A000294 / A000075'},
+AX04:{layer:'目标所有权',level:'A',title:'主体性 = 自己选择 + 承担后果 + 允许修正。',evidence:'A000002 / A000005 / A000029'},
+AX13:{layer:'目标所有权',level:'B',title:'祛魅的终点不是虚无，而是拿回叙事主权。',evidence:'A000094 / A000019 / A000031'},
+AX05:{layer:'能力与学习',level:'A',title:'真实能力必须能在现实问题中被验证，并且最好能够迁移。',evidence:'A000158 / A000133 / A000150 / A000204'},
+AX09:{layer:'能力与学习',level:'A',title:'认知和行动必须通过反馈循环互相纠正。',evidence:'A000027'},
+AX10:{layer:'能力与学习',level:'A',title:'痛苦本身没有教育价值；有价值的是困难被转化成能力。',evidence:'A000012 / A000104 / A000056 / A000121'},
+AX11:{layer:'能力与学习',level:'A',title:'努力不是道德勋章，投入必须接受方向、反馈和回报检验。',evidence:'A000104 / A000050 / A000133 / A000107'},
+AX06:{layer:'自由基础设施',level:'A',title:'资源的高阶用途，是把“不得不”兑换成选择、拒绝和退出空间。',evidence:'A000093 / A000075'},
+AX07:{layer:'自由基础设施',level:'A',title:'真正的安全感更接近“出错后还能重启”，而不是“永远不出错”。',evidence:'A000125 / A000020 / A000056'},
+AX08:{layer:'自由基础设施',level:'A',title:'边界的底层是平等：善良不等于无限退让，也不必负责所有人的舒适。',evidence:'A000176 / A000206 / A000053'},
+AX12:{layer:'生活价值',level:'A',title:'快乐和休息不是成功后的奖励，它们本身就是生活系统的一部分。',evidence:'A000129 / A000199 / A000026'},
+AX14:{layer:'生活价值',level:'B',title:'成功和成长是工具，最终必须服务于自己选择的生活。',evidence:'A000029 / A000050 / A000120'},
+AX15:{layer:'生活价值',level:'B',title:'好的长期关系更接近两个主体之间的主动选择，而不是单向牺牲。',evidence:'A000193 / A000185 / A000199 / A000203 / A000099'},
+AX16:{layer:'生活价值',level:'B',title:'自由不是终点；最终要被重新投入生命体验、关系和自我创造的意义。',evidence:'A000129 / A000176 / A000031 / A000019'}
+};
+const layerInfo={
+'现实校准':['先回答“世界实际上怎样运行”，防止把结构问题变成自责，也防止把社会脚本当自然规律。',['AX01','AX02','AX03']],
+'目标所有权':['现实看清之后，必须回答“谁来定义目标”。主体性负责选择与承担，叙事主权负责价值排序。',['AX04','AX13']],
+'能力与学习':['愿望必须落到可验证能力；认知—行动反馈负责更新，反苦难与反努力负责防止能力建设重新变成自我折磨。',['AX05','AX09','AX10','AX11']],
+'自由基础设施':['把能力和资源转化为现实选择权，再用可重启和边界降低对单一工作、关系与身份的依赖。',['AX06','AX07','AX08']],
+'生活价值':['自由不是终点。快乐纠正永久延迟，成功降回工具，关系保留双主体，意义回答自由最终投向哪里。',['AX12','AX14','AX15','AX16']]
+};
+const edges=[
+['AX01','AX05','约束→能力','结构看清后，行动要集中在仍可改变和积累的变量。'],['AX01','AX06','约束→选择','结构越强，选择权和退出路径的现实价值越高。'],['AX02','AX04','祛魅→主体','身份光环下降，个人判断权才可能回到自己。'],['AX02','AX05','证据→能力','不看头衔，最终就必须用结果与能力校验。'],['AX03','AX04','拆脚本→选择','先识别“应该”，主体性才不是在别人题目里做优化。'],['AX03','AX13','拆脚本→叙事','旧脚本失去神圣性后，需要重新决定什么值得追求。'],['AX04','AX05','目标→建设','先知道为谁而活，再决定值得建设什么能力。'],['AX04','AX06','主体→自由','选择权的意义是服务自己的选择，而不是增加身份。'],['AX04','AX08','主体→边界','没有边界，主体性会持续被关系和权力侵蚀。'],['AX13','AX14','价值→成功','自己定义价值后，成功只能降回工具。'],['AX13','AX16','价值→意义','叙事主权最终进入自我赋义。'],['AX09','AX05','反馈→能力','真实反馈是能力是否成立的质检器。'],['AX09','AX11','反馈→努力','努力必须接受反馈检验，不能只看投入感。'],['AX10','AX05','困难→能力','困难只有被转化成能力时才有价值。'],['AX10','AX11','苦难→努力纠偏','痛苦不能替代有效训练。'],['AX11','AX05','投入→能力','值得保留的长期投入应增加能力或结果。'],['AX05','AX06','能力→选择','可迁移能力会降低对单一平台和环境的依赖。'],['AX05','AX07','能力→重启','能力越可迁移，失败后的恢复成本通常越低。'],['AX07','AX06','重启→敢于选择','有容错和退路，选择权才更容易被真正使用。'],['AX08','AX15','边界→关系','边界让关系回到两个主体，而不是单向牺牲。'],['AX06','AX14','自由→目标纠偏','选择空间扩大后，要重新检查成长是否仍值得。'],['AX12','AX14','生活→成功纠偏','快乐与休息提醒成功不能永久占用全部生活。'],['AX12','AX16','体验→意义','生活体验是意义被实际活出来的一部分。'],['AX15','AX16','关系→意义','关系与共同生活构成后期意义的重要来源。'],['AX14','AX16','工具→终点','成功降回工具后，最终问题变成自由拿来做什么。']
+];
+const priorities=[
+['P1','事实 > 脚本','现实成本、资源和制度约束先于“别人都这样”“这个年龄必须这样”。AX01/03先校准，AX13后排序价值。'],
+['P2','证据 > 身份','头衔、职位、学历和权力不能替代具体事实、结果与专业能力。AX02/05优先。'],
+['P3','主体性 = 自主 + 承担','“我想要”不能免除后果。AX04永远与责任和允许修正绑定。'],
+['P4','反馈 > 努力感','当“我已经很努力”和现实结果冲突时，先看反馈和瓶颈，而不是继续加码。AX09/11优先。'],
+['P5','转化能力 > 吃苦程度','痛苦本身不加分。只有能转化成能力、结果和适应性的挑战才保留。AX10约束AX11。'],
+['P6','可逆性 > 一次押注','高成本决定先设计最坏结果、缓冲、止损和重启路径。AX07约束AX06的使用。'],
+['P7','持续侵犯时：边界 > 表面和谐','正常合作不需要攻击；但反复越界时，维持他人舒适不能继续高于自己的平等与责任边界。AX08优先。'],
+['P8','生活价值 > 无限升级','如果成长长期压缩生活、没有增加选择权，AX12/14要反向校正AX05/11。'],
+['P9','A层定可行域，B层定方向','A层硬核公理先判断事实、能力、风险和边界；多个方案都可行时，再由AX13/14/15/16选择更值得过的方向。']
+];
+const scenarios=[
+{id:'job',title:'工作稳定但没成长',path:['AX01','AX05','AX09','AX06','AX07','AX14'],notes:['先拆开“稳定”究竟提供现金、时间还是只是惯性。','再看过去一年有没有形成可迁移能力。','不要先辞职，用面试、项目、市场报价制造反馈。','能力和现金缓冲应转换成真实外部选项。','决定前先计算最坏结果和重启成本。','最后比较：继续留下是否仍服务于你想过的生活。'],result:'如果岗位仍提供高现金流/自由时间，并允许外部积累能力，暂留可能增加选择权；如果能力长期停滞且已有更优真实选项，离开才更符合这套逻辑。'},
+{id:'marry',title:'父母催婚',path:['AX03','AX04','AX13','AX06','AX07','AX15'],notes:['先把年龄焦虑、父母评价与婚姻真实成本分开。','确认这是自己的选择，而不是为了结束压力。','决定你认可什么样的亲密关系和生活。','检查经济、居住、工作等选择空间。','评估不结/结错/离开后的真实重启成本。','婚姻最终要是两个主体主动共享生活，而不是单向完成任务。'],result:'结论不应是“反催婚所以不结婚”，而是：只有当关系本身值得、双方主动参与、现实成本可承受时，婚姻才值得进入。'},
+{id:'boss',title:'领导长期否定我',path:['AX02','AX05','AX09','AX08','AX06'],notes:['先把领导的组织权力和专业判断分开。','把“你不行”翻译成具体任务、标准和结果。','用客户、同事、作品、市场反馈交叉校准。','如果存在羞辱、甩锅和长期越界，建立证据和边界。','若环境持续压制且不可修复，外部选择权决定你能否退出。'],result:'既不能因为领导有权力就全盘自责，也不能用“权威祛魅”拒绝真实反馈；以可验证能力和外部校准为中心。'},
+{id:'effort',title:'越努力越迷茫',path:['AX09','AX11','AX10','AX05','AX12','AX14'],notes:['先判断是缺行动信息，还是机械忙碌太多。','把投入从“累不累”改成“产生了什么反馈”。','痛苦本身不证明方向正确。','只保留能形成能力和结果的训练。','恢复和快乐也是维持判断力的系统变量。','最后检查目标本身是不是仍值得。'],result:'不是“别努力”，而是停止低反馈投入，把时间重新配置到真正瓶颈、有效训练和恢复；如果目标本身错误，再努力只会放大错误。'},
+{id:'love',title:'关系很消耗但不敢离开',path:['AX04','AX08','AX15','AX06','AX07','AX16'],notes:['先确认留下是主动选择还是恐惧驱动。','检查尊重、边界与责任是否长期失衡。','关系应当是两个主体持续参与，而不是单向牺牲。','恢复经济、社交、工作与生活的独立结构。','把分开后的最坏结果和重启路径具体化。','依赖降低后再问这段关系是否仍值得投入生命。'],result:'不因一次冲突就退出，也不因害怕孤独无限留下；先恢复主体性、边界和重启能力，再重新判断关系。'},
+{id:'empty',title:'成功后仍然空虚',path:['AX14','AX12','AX13','AX15','AX16'],notes:['先把成功从终点降回工具。','把快乐、休息和体验重新放回日常，而非未来奖励。','重新决定什么值得你持续投入。','检查关系是否只剩功能和效率。','最终把已经获得的时间与自由投入体验、关系和自我创造。'],result:'这类问题通常不是“还不够成功”，而是旧目标完成后没有重新建立价值方向；继续升级成就可能只会延长空虚。'}
+];
+function renderLayers(){const el=document.getElementById('layers');el.innerHTML=Object.entries(layerInfo).map(([name,[desc,ids]],i)=>`<div class="layer"><div class="layerhead"><div><div class="lname">L${i+1}</div><h3>${name}</h3></div><p>${desc}</p></div><div class="nodes">${ids.map(id=>`<button class="nodebtn ${AX[id].level==='B'?'bnode':''}" data-id="${id}">${id} · ${AX[id].level}层</button>`).join('')}</div></div>`).join('');document.querySelectorAll('.nodebtn').forEach(b=>b.addEventListener('click',()=>showNode(b.dataset.id,b)))}
+function showNode(id,btn){document.querySelectorAll('.nodebtn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const a=AX[id],incoming=edges.filter(e=>e[1]===id),outgoing=edges.filter(e=>e[0]===id),d=document.getElementById('detail');d.className='detail show';d.innerHTML=`<div class="axid">${id} · ${a.layer} · ${a.level}层</div><h3>${a.title}</h3><div class="meta"><b>代表证据：</b>${a.evidence}</div><div class="relgrid"><div class="rel"><b>上游：什么会推到这里</b>${incoming.length?incoming.map(e=>`${e[0]} → ${e[2]}：${e[3]}`).join('<br><br>'):'这是较上游的起点公理。'}</div><div class="rel"><b>下游：它继续推出什么</b>${outgoing.length?outgoing.map(e=>`${e[1]} → ${e[2]}：${e[3]}`).join('<br><br>'):'这是价值落点，主要负责最终校验。'}</div></div>`}
+function renderRules(){document.getElementById('rules').innerHTML=edges.map((e,i)=>`<div class="rule"><b>${String(i+1).padStart(2,'0')} · ${e[0]} → ${e[1]} · ${e[2]}</b><p>${e[3]}</p></div>`).join('')}
+function renderPriority(){document.getElementById('priority').innerHTML=priorities.map(p=>`<div class="prio"><small>${p[0]}</small><b>${p[1]}</b><p>${p[2]}</p></div>`).join('')}
+function renderScenarioButtons(){const el=document.getElementById('scenarios');el.innerHTML=scenarios.map((s,i)=>`<button data-id="${s.id}" class="${i===0?'active':''}">${s.title}</button>`).join('');el.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{el.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');showScenario(b.dataset.id)}));showScenario(scenarios[0].id)}
+function showScenario(id){const s=scenarios.find(x=>x.id===id);document.getElementById('trace').innerHTML=s.path.map((aid,i)=>`<div class="tstep"><div class="tid">${aid}</div><div><b>${AX[aid].title}</b><p>${s.notes[i]}</p></div></div>`).join('');document.getElementById('scenarioResult').innerHTML=`<b>条件式结论：</b>${s.result}`}
+renderLayers();renderRules();renderPriority();renderScenarioButtons();
+</script></body></html>
